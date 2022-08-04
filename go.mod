@@ -58,3 +58,5 @@ require (
 	gopkg.in/yaml.v2 v2.4.0
 	oras.land/oras-go v1.2.0
 )
+
+replace github.com/lf-edge/eve/api/go => ../eve/api/go
