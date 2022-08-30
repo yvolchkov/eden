@@ -84,6 +84,7 @@ type AppExpectation struct {
 	openStackMetadata bool
 	profiles          []string
 	datastoreOverride string
+	volumeTarget      string
 	startDelay        uint32
 }
 

@@ -271,7 +271,13 @@ func WithDatastoreOverride(datastoreOverride string) ExpectationOption {
 	}
 }
 
-//WithStartDelay set start delay option
+// WithVolumeTarget set the target usage of the volume (e.g. AppCustom)
+func WithVolumeTarget(volumeTarget string) ExpectationOption {
+	return func(expectation *AppExpectation) {
+		expectation.volumeTarget = volumeTarget
+	}
+}
+
 func WithStartDelay(startDelay uint32) ExpectationOption {
 	return func(expectation *AppExpectation) {
 		expectation.startDelay = startDelay
