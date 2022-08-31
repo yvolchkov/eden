@@ -85,6 +85,7 @@ type AppExpectation struct {
 	profiles          []string
 	datastoreOverride string
 	volumeTarget      string
+	volumeCustomMeta  string
 	startDelay        uint32
 }
 

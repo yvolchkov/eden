@@ -278,6 +278,13 @@ func WithVolumeTarget(volumeTarget string) ExpectationOption {
 	}
 }
 
+// WithVolumeCustomMeta supply custom metatdata with the volume
+func WithVolumeCustomMeta(volumeCustomMeta string) ExpectationOption {
+	return func(expectation *AppExpectation) {
+		expectation.volumeCustomMeta = volumeCustomMeta
+	}
+}
+
 func WithStartDelay(startDelay uint32) ExpectationOption {
 	return func(expectation *AppExpectation) {
 		expectation.startDelay = startDelay

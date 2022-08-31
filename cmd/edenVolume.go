@@ -115,6 +115,7 @@ var volumeCreateCmd = &cobra.Command{
 			}
 			opts = append(opts, expect.WithDatastoreOverride(datastoreOverride))
 			opts = append(opts, expect.WithVolumeTarget(volumeTarget))
+			opts = append(opts, expect.WithVolumeCustomMeta(volumeCustomMeta))
 			registryToUse := registry
 			switch registry {
 			case "local":
@@ -299,6 +300,7 @@ func volumeInit() {
 	volumeCreateCmd.Flags().BoolVar(&directLoad, "direct", true, "Use direct download for image instead of eserver")
 	volumeCreateCmd.Flags().StringVar(&datastoreOverride, "datastoreOverride", "", "Override datastore path for volume (when we use different URL for Eden and EVE or for local datastore)")
 	volumeCreateCmd.Flags().StringVar(&volumeTarget, "target", "", "Specify the usage of the volume. Currently only 'AppCustom' has an effect")
+	volumeCreateCmd.Flags().StringVar(&volumeCustomMeta, "custom-meta", "", "Supply custom metadate with the volume in arbitrary text format. Currently works only with --target")
 
 	volumeCmd.AddCommand(volumeDeleteCmd)
 	volumeCmd.AddCommand(volumeDetachCmd)

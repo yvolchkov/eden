@@ -58,6 +58,7 @@ var (
 	openStackMetadata bool
 	datastoreOverride string
 	volumeTarget      string
+	volumeCustomMeta  string
 
 	startDelay uint32
 

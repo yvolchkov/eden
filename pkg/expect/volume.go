@@ -60,6 +60,8 @@ func (exp *AppExpectation) Volume() *config.Volume {
 	}
 	volume.Target = config.Target(targetVal)
 
+	contentTree.CustomMetaData = exp.volumeCustomMeta
+
 	volume.DisplayName = exp.appName
 	_ = exp.ctrl.AddVolume(volume)
 	exp.device.SetVolumeConfigs(append(exp.device.GetVolumes(), volume.Uuid))
