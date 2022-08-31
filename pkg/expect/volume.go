@@ -53,6 +53,13 @@ func (exp *AppExpectation) Volume() *config.Volume {
 	_ = exp.ctrl.AddContentTree(contentTree)
 	exp.device.SetContentTreeConfig(append(exp.device.GetContentTrees(), contentTree.Uuid))
 	volume := exp.driveToVolume(drive, 0, contentTree)
+
+	targetVal, ok := config.Target_value[exp.volumeTarget]
+	if !ok {
+		panic("Wrong target")
+	}
+	volume.Target = config.Target(targetVal)
+
 	volume.DisplayName = exp.appName
 	_ = exp.ctrl.AddVolume(volume)
 	exp.device.SetVolumeConfigs(append(exp.device.GetVolumes(), volume.Uuid))
